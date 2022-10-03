@@ -238,6 +238,8 @@ main();
 
 공개된 코드를 기반으로 학습하고 코드를 제안하기 때문에, 아직 공개되지 않은 코드나 공개된지 얼마 되지 않은 코드는 copliot이 제안할 방법이 없습니다. 막 SDK 새 버전이 나와서 적용해야 할 때, 아마도 copliot은 계속 옛날 버전의 코드를 제안할 겁니다. 자기도 본 적이 없으니까요 😱
 
+그리고 이 외에도 여러가지 문제점이 있긴 합니다. 관심이 있는 분들은 이 글 [Is GitHub Copilot a blessing, or a curse?](https://www.fast.ai/posts/2021-07-19-copilot.html) 을 참고하세요.
+
 ## Your AI Pair Programmer
 
 자 그러면 마지막으로, github는 copliot 제품을 어떻게 소개하는지 확인해볼까요?
