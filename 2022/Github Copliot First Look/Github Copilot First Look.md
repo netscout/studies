@@ -303,15 +303,13 @@ Github Copliot의 첫 인상은 똑똑하긴 한데, 알아듣게 설명을 해�
 
 그리고 이 외에도 여러가지 문제점이 있긴 합니다. 관심이 있는 분들은 이 글 [Is GitHub Copilot a blessing, or a curse?](https://www.fast.ai/posts/2021-07-19-copilot.html) 을 참고하세요.
 
-## Your AI Pair Programmer
-
-자 그러면 마지막으로, github는 copliot 제품을 어떻게 소개하는지 확인해볼까요?
+## 마치며 : 1 개발자 1 AI 시대의 예감
 
 <p align="center"><img src="./%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202022-10-03%20%EC%98%A4%EC%A0%84%209.23.36.png"></p>
 
-**Your AI pair programmer** 라고 소개하고 있습니다. 우리 말로는 **AI 짝궁 프로그래머** 가 되겠네요. 👥
+github는 copliot을 **Your AI pair programmer** 라고 소개하고 있습니다. 우리 말로는 **AI 짝궁 프로그래머** 가 되겠네요. 👥
 
-**pair programming**이란 말 그대로 두 사람이 같이 프로그래밍을 하는 걸 말하죠. 한 사람이 주도적으로 프로그래밍을 하고, 또 한 사람은 작성되는 코드의 문제점등을 확인하고 더 나은 방법이 있는지 등을 제안해주면서 최종 목표를 달성할 수 있도록 돕습니다. 물론 copliot은 현 시점에서 코드의 품질에 대해서는 할 줄 아는 게 없습니다. 하지만 제한 적으로 더 나은 방법을 제안할 수는 있어 보입니다.
+아직은 장점도 단점도 분명합니다. 그런데 이제 곧 개발자 누구나 AI 의 도움을 받으며 코딩하는 시대가 성큼 다가온 것 같습니다. 더욱 더 발전할 copilot을 기대합니다.
 
 ## 참고 자료
 
