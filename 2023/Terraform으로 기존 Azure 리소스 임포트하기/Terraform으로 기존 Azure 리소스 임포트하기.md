@@ -788,4 +788,4 @@ Wow! 이제 드디어 import 해온 상태와 현재 제가 원하는 상태가 
 # 참고자료
 
 - terraform up and running 3rd edition
--
+- [Testing Terraform Import in v.1.5.0+ with Azure Resources](https://jakewalsh.co.uk/testing-terraform-import-in-v-1-5-0-with-azure-resources/)
