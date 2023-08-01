@@ -11,17 +11,17 @@ Terraform은 DevOps의 필수 구성 요소로 자리 잡고 있습니다. Terra
 - **문서화**: 또한 코드는 인프라에 대한 문서로 볼 수도 있습니다. 누군가의 머리 속에만 존재하지 않고, 누구나 볼 수 있는 코드에 인프라의 정보가 담기는 셈이죠.
 - **버전 관리**: 그리고 매우 큰 장점이 또 있는데요, 마치 소스 코드를 git으로 버전 관리 하듯이 인프라의 구성 역시 코드로써 버전 관리 할 수 있습니다. 뭔가 잘 못 됐을 때, 빠르게 커밋 로그를 통해 변경점을 찾을 수 있고 이전 버전으로 돌아갈 수도 있죠! 😊
 
-그런데 Terraform으로 관리를 시작하면 누구나 거치는 어려움이 있습니다. 그건 바로 모든 리소스를 테라폼을 통해서만 관리해야 한다는 점입니다. 테라폼으로 리소스를 만들어 놓고 나서, 나도 모르게 습관적으로 포털에 들어가서 마우스를 클릭클릭해서 설정을 변경하고 싶은 유혹에 빠집니다. 수작업을 추가하는 순간 테라폼의 상태 관리에서 벗어나기 시작하므로 피치 못할 사정이 아니면 테라폼을 통해서 상태를 변경해야 합니다.
+그런데 Terraform으로 관리를 시작하면 누구나 거치는 어려움이 있습니다. 그건 바로 모든 리소스를 Terraform을 통해서만 관리해야 한다는 점입니다. Terraform으로 리소스를 만들어 놓고 나서, 나도 모르게 습관적으로 포털에 들어가서 마우스를 클릭클릭해서 설정을 변경하고 싶은 유혹에 빠집니다. 수작업을 추가하는 순간 Terraform의 상태 관리에서 벗어나기 시작하므로 피치 못할 사정이 아니면 Terraform을 통해서 상태를 변경해야 합니다.
 
-> 물론 어떤 기술이나 다 그렇듯이 테라폼으로 100% 다 제어가 불가능한 경우도 있습니다. 테라폼의 한계이거나 테라폼 프로바이더의 문제 등으로 100% 제어가 다 안되는 경우가 종종 발생하긴 합니다. 그럴 때는 리소스의 생성 및 삭제만 테라폼으로 관리하고 나머지는 수작업으로 관리하는 수 밖에 없습니다. 😊 물론 제가 몰라서 그럴 가능성도 충분히...쓰읍 😭
+> 물론 어떤 기술이나 다 그렇듯이 Terraform으로 100% 다 제어가 불가능한 경우도 있습니다. Terraform의 한계이거나 Terraform 프로바이더의 문제 등으로 100% 제어가 다 안되는 경우가 종종 발생하긴 합니다. 그럴 때는 리소스의 생성 및 삭제만 Terraform으로 관리하고 나머지는 수작업으로 관리하는 수 밖에 없습니다. 😊 물론 제가 몰라서 그럴 가능성도 충분히...쓰읍 😭
 
-다음으로 겪는 어려움은 테라폼을 사용하기 전에 이미 배포된 리소스입니다. 가장 이상적인 방법은 물론 기존 리소스를 지우고 테라폼으로 새로 배포하는 겠지만 현실은 전혀 그렇지 않죠! 😭
+다음으로 겪는 어려움은 Terraform을 사용하기 전에 이미 배포된 리소스입니다. 가장 이상적인 방법은 물론 기존 리소스를 지우고 Terraform으로 새로 배포하는 겠지만 현실은 전혀 그렇지 않죠! 😭
 
-그래서 테라폼은 기존에 이미 배포된 리소스를 임포트 할 수 있는 방법을 제공해왔습니다. 특히 최근 1.5 버전 부터 **import** 블록을 제공합니다.
+그래서 Terraform은 기존에 이미 배포된 리소스를 임포트 할 수 있는 방법을 제공해왔습니다. 특히 최근 1.5 버전 부터 [import 블록](https://developer.hashicorp.com/terraform/language/import/generating-configuration)을 제공합니다.
 
 ## 예시
 
-import 를 통해 실제 배포된 인스턴스를 가져와보고자 합니다. 현재 작업 중인 솔루션은 대부분의 운영 리소스가 Terraform으로 배포되어 Azure에서 운영되고 있습니다. 딱 한 가지 Container Instance로 동작 중인 서버들이 수작업으로 배포되어 있는데요, 이 서버를 import 블록으로 가져오고자 합니다.
+import 블록을 통해 실제 배포된 인스턴스의 Terraform 코드를 생성해서 가져와보고자 합니다. 현재 작업 중인 솔루션은 대부분의 운영 리소스가 Terraform으로 배포되어 Azure에서 운영되고 있습니다. 딱 한 가지 Container Instance로 동작 중인 서버들이 수작업으로 배포되어 있는데요, 이 서버를 import 블록으로 가져오고자 합니다.
 
 ### 준비
 
@@ -74,7 +74,7 @@ resource "azurerm_container_group" "example" {
 
 import를 진행 할 폴더를 생성하고(ex: tf-import-test), main.tf 파일을 생성합니다.
 
-그리고 다음과 같이 terraform 버전과 프로바이더를 설정합니다.
+그리고 다음과 같이 Terraform 버전과 프로바이더를 설정합니다.
 
 ```jsx
 terraform {
@@ -356,7 +356,7 @@ azurerm_container_group.container: Import complete [id=/subscriptions/xxxxxxx-xx
 Apply complete! Resources: 2 imported, 0 added, 0 changed, 0 destroyed.
 ```
 
-임포트가 끝났습니다! 임포트된 상태 값은 같은 폴더의 **terraform.tfstate** 파일에 저장되어 있는데요, 테라폼 상태는 **backend** 설정을 통해 원격 상태 저장소(Azure Storage, AWS S3)에 저장하는 게 일반적이죠.
+임포트가 끝났습니다! 임포트된 상태 값은 같은 폴더의 **terraform.tfstate** 파일에 저장되어 있는데요, Terraform 상태는 **backend** 설정을 통해 원격 상태 저장소(Azure Storage, AWS S3)에 저장하는 게 일반적이죠.
 
 ```jsx
 // Azure
@@ -523,7 +523,7 @@ variable container_registry_rg {
 
 ### 모듈 사용하기
 
-그리고 이 모듈을 사용해서 리소스를 관리하기 위한 테라폼 코드를 작성할 차례입니다. 여기서는 **xxx-live/live/stg/services/container-instance/some-vm** 에 작성합니다.
+그리고 이 모듈을 사용해서 리소스를 관리하기 위한 Terraform 코드를 작성할 차례입니다. 여기서는 **xxx-live/live/stg/services/container-instance/some-vm** 에 작성합니다.
 
 **main.tf** 부터 작성을 시작해볼까요?
 
@@ -719,9 +719,9 @@ actions if you run "terraform apply" now.
 ...
 ```
 
-그러니까 현재 작성중인 테라폼 코드에 **azurerm_container_group.container**, **azurerm_resource_group.rg** 가 없다는 말입니다!
+그러니까 현재 작성중인 Terraform 코드에 **azurerm_container_group.container**, **azurerm_resource_group.rg** 가 없다는 말입니다!
 
-지금 우리는 모듈을 정의하고 모듈을 사용해서 테라폼 코드를 작성했죠? 그래서 사실 각 리소스의 이름은 이렇게 변경됩니다.
+지금 우리는 모듈을 정의하고 모듈을 사용해서 Terraform 코드를 작성했죠? 그래서 사실 각 리소스의 이름은 이렇게 변경됩니다.
 
 - azurerm_container_group.container → module.some-vm.azurerm_container_group.container
 - azurerm_resource_group.rg → module.some-vm.azurerm_resource_group.rg
