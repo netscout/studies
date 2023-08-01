@@ -469,7 +469,7 @@ resource "azurerm_container_group" "container" {
     username                  = data.azurerm_container_registry.acr.admin_username
   }
 
-	// acr의 스펠링 변경도 무시할 수 있도록 image_registry_credential 추가
+  // acr의 스펠링 변경도 무시할 수 있도록 image_registry_credential 추가
   lifecycle {
     ignore_changes = [exposed_port, ip_address_type, image_registry_credential]
   }
@@ -784,6 +784,8 @@ changes are needed.
 ```
 
 Wow! 이제 드디어 import 해온 상태와 현재 제가 원하는 상태가 일치합니다! 그리고 모듈화도 성공했죠! 👍
+
+> 여기서는 간단한 예시를 위해서 terraform을 이용했지만, terragrunt를 사용하면 위처럼 이름을 바꾸는 임포트 작업을 할 필요가 없습니다. 모듈을 사용할 때도 원래 이름 그대로 가져오기 때문입니다! 😊
 
 # 참고자료
 
