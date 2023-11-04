@@ -791,3 +791,7 @@ Wow! 이제 드디어 import 해온 상태와 현재 제가 원하는 상태가 
 
 - terraform up and running 3rd edition
 - [Testing Terraform Import in v.1.5.0+ with Azure Resources](https://jakewalsh.co.uk/testing-terraform-import-in-v-1-5-0-with-azure-resources/)
+
+# License
+
+[저작자표시-비영리-변경금지 2.0 대한민국 (CC BY-NC-ND 2.0 KR)](https://creativecommons.org/licenses/by-nc-nd/2.0/kr/)

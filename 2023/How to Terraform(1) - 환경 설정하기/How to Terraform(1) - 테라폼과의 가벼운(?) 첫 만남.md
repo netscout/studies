@@ -844,3 +844,7 @@ aws_instance.example: Creating...
 - [https://github.com/iann0036/iamlive](https://github.com/iann0036/iamlive)
 - [Determining AWS IAM Policies According To Terraform And AWS CLI](https://meirg.co.il/2021/04/23/determining-aws-iam-policies-according-to-terraform-and-aws-cli/)
 - [Terraform Up and Running, 3rd Edition](https://www.terraformupandrunning.com/)
+
+# License
+
+[저작자표시-비영리-변경금지 2.0 대한민국 (CC BY-NC-ND 2.0 KR)](https://creativecommons.org/licenses/by-nc-nd/2.0/kr/)
