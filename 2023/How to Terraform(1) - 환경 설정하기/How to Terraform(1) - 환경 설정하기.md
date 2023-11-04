@@ -1,4 +1,4 @@
-# How to Terraform(1) - 환경 설정하기
+# How to Terraform(1) - 테라폼과의 가벼운(?) 첫 만남
 
 ## Terraform이란?
 
@@ -666,7 +666,179 @@ Destroy complete! Resources: 2 destroyed.
 
 ## IAM 권한 제한하기
 
-여기부터 작성하고...
+IAM에 딱 필요한 권한 허용하려면, 우선 어떤 권한이 필요한지 알아야 합니다. 그런데.... 그걸 어떻게 알 수 있을까요??
 
-    - https://stackoverflow.com/questions/51273227/whats-the-most-efficient-way-to-determine-the-minimum-aws-permissions-necessary
-    - https://github.com/iann0036/iamlive
+여기서 [iamlive](https://github.com/iann0036/iamlive)이 등장할 차례입니다!
+
+설명보다는 iamlive 사이트에서 제공하는 예시를 한 번 보시죠.
+
+<img src="https://raw.githubusercontent.com/iann0036/iamlive/assets/iamlive.gif" /><br />
+
+감이 오시나요?
+
+aws를 대상으로 뭔가 작업을 진행할 때, 그 작업에서 요구되는 IAM을 바로 확인할 수 있게 해줍니다!
+
+### iamlive 설정하기
+
+iamlive는 homebrew등으로 직접 설치할 수도 있지만, 설치하지 않고 [docker를 이용하는 방법](https://meirg.co.il/2021/04/23/determining-aws-iam-policies-according-to-terraform-and-aws-cli/)도 있습니다.
+
+여기서는 docker를 통해 iamlive를 실행하겠습니다. 우선, docker로 해당 이미지를 실행합니다.
+
+```bash
+> docker run \
+  -p 80:10080 \
+  -p 443:10080 \
+  --name iamlive-test \
+  -it unfor19/iamlive-docker \
+  --mode proxy \
+  --bind-addr 0.0.0.0:10080 \
+  --force-wildcard-resource \
+  --output-file "/app/iamlive.log"
+```
+
+처음 실행 하는 거기 때문에 이미지를 다운로드 받고 실행이 됩니다. 실행이 됐을 때 별도로 메세지가 표시되지는 않기 때문에 에러 없이 대기 상태에 있다면 정상적으로 실행된 것입니다.
+
+이제 별도로 터미널을 한 개 더 열고 다음 명령어를 실행합니다.
+
+```bash
+> docker cp iamlive-test:/home/appuser/.iamlive ~/
+```
+
+proxy 모드로 실행되는 iamlive에 접속하기 위한 키 파일을 프로필 루트 디렉토리로 복사했습니다. 다음 명령을 통해서 제대로 복사되었는지 확인할 수 있습니다.
+
+```bash
+> ls ./.iamlive
+ca.key ca.pem
+```
+
+### iamlive을 통해 권한 확인하기
+
+원문에서 권장하는 방법은 권한이 하나도 없는 사용자를 만들고, 계속 명령어를 실행하면서 꼭 필요한 권한만 하나씩 복사하는 방식입니다. 그런데 이렇게 하면 필요한 권한이 많은 수록 여러번 명령을 반복적으로 실행하면서 권한을 하나씩 확인하고, 하나씩 추가해야 합니다. 꽤나 번거로운 작업이죠. 그래서 저는 그냥 어드민 권한이 있는 계정으로 테스트해서 전체 권한을 확인하고, 필요한 권한을 한 번에 할당하는 방식으로 진행하겠습니다.
+
+앞서 작성한 코드를 대상으로 `terraform apply`를 실행하여 인프라를 배포합니다. 그리고 iamlive가 실행 중인 터미널을 잘 살펴보세요. 그러면 뭐가 막 지나가는 데 마지막 줄이 핵심입니다. 마지막 줄에는 다음과 같은 권한이 표시됩니다.
+
+```bash
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "sts:GetCallerIdentity",
+        "ec2:CreateSecurityGroup",
+        "ec2:DescribeSecurityGroups",
+        "ec2:DescribeNetworkInterfaces",
+        "ec2:DeleteSecurityGroup",
+        "ec2:RevokeSecurityGroupEgress",
+        "ec2:AuthorizeSecurityGroupIngress",
+        "ec2:RunInstances",
+        "ec2:DescribeInstances",
+        "ec2:DescribeInstanceTypes",
+        "ec2:DescribeTags",
+        "ec2:DescribeVpcs",
+        "ec2:DescribeInstanceAttribute",
+        "ec2:DescribeVolumes",
+        "ec2:DescribeInstanceCreditSpecifications"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+```
+
+즉, 현재까지 작성된 terraform 코드를 실행해서 인프라를 구성하기 위해서는 이런 권한이 모두 필요하다는 거죠! 그럼 `tf destroy`도 바로 이어서 한 번 해볼까요? 그러면 최종적으로 이런 권한이 필요하다고 합니다.
+
+```bash
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "sts:GetCallerIdentity",
+        "ec2:CreateSecurityGroup",
+        "ec2:DescribeSecurityGroups",
+        "ec2:DescribeNetworkInterfaces",
+        "ec2:DeleteSecurityGroup",
+        "ec2:RevokeSecurityGroupEgress",
+        "ec2:AuthorizeSecurityGroupIngress",
+        "ec2:RunInstances",
+        "ec2:DescribeInstances",
+        "ec2:DescribeInstanceTypes",
+        "ec2:DescribeTags",
+        "ec2:DescribeVpcs",
+        "ec2:DescribeInstanceAttribute",
+        "ec2:DescribeVolumes",
+        "ec2:DescribeInstanceCreditSpecifications",
+        "ec2:ModifyInstanceAttribute",
+        "ec2:TerminateInstances"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+```
+
+> 이렇게 이쁘게 표시되지는 않습니다만... [JSON Formatter](https://jsonformatter.org/json-pretty-print)등의 사이트를 통해 이쁘게 변환하시면 됩니다!
+
+네, 그럼 새로운 사용자를 만들어서 이 권한을 부여하겠습니다. 앞서 계정을 생성했던 것과 동일한 절차로 사용자 계정을 새로 생성합니다. 사용자 이름과 그룹 이름은 `terraform-user`로 설정하고, `그룹에는 아무런 권한을 주지 않습니다!`
+
+`다시 한번 말씀드리면 그룹에는 아무런 권한을 주지 마세요!`
+
+> 혹시 잊으실까봐 그러는데, 액세스 키와 비밀 액세스 키는 따로 저장해두셔야 합니다.
+
+자 그럼 그룹 설정에서 `권한`탭을 확인합니다. 현재 아무런 권한이 없는데요, 여기서 `권한 추가` -> `인라인 정책 생성`을 선택합니다.
+
+<p align="center"><img src="./11.png"></p>
+
+그리고 `권한 지정` 페이지에서 `JSON`탭을 선택하고, 앞서 iamlive에서 확인한 권한을 복사해서 붙여넣습니다.
+
+<p align="center"><img src="./12.png"></p>
+
+그리고 `다음`을 선택하고,
+
+<p align="center"><img src="./13.png"></p>
+
+`정책 이름`을 `terraform-user`로 설정하고, `정책 생성`을 선택합니다. `정책 생성` 또는 `변경 사항 저장`(수정할 때)을 꼭 눌러주셔야만 반영됩니다.
+
+자 그러면 새로 만든 유저로 동일한 코드를 실행해볼까요?
+
+설정 파일(~/.zshrc)을 열어서 다음 내용을 새 유저의 액세스 키와 비밀 액세스 키로 변경합니다.
+
+```bash
+# 기존 유저 액세스 키
+# export AWS_ACCESS_KEY_ID=...
+# export AWS_SECRET_ACCESS_KEY=...
+# 새 유저 액세스 키
+export AWS_ACCESS_KEY_ID=...
+export AWS_SECRET_ACCESS_KEY=...
+```
+
+그리고 변경된 설정 파일을 꼭 적용해주셔야 합니다.
+
+```bash
+> source ~/.zshrc
+```
+
+자 그리고 다시 apply 해봅시다!
+
+```bash
+> tf apply
+...
+aws_instance.example: Creating...
+╷
+│ Error: creating EC2 Instance: UnauthorizedOperation: You are not authorized to perform this operation. User: arn:aws:iam::246181472423:user/terraform-user is not authorized to perform: ec2:CreateTags on resource: arn:aws:ec2:ap-northeast-2:246181472423:instance/* because no identity-based policy allows the ec2:CreateTags action. Encoded authorization failure message: -Ebof-TaMnw5iPJ_dVKP00sOBTScilmv_M3-TgALYm6r48Fi4oAIxOOMWghh0LZkPXrH1yqS5XIR9dsIgCLrHl2lua-CgXDXXWc0uq-QBmKupfCnhtGx2Sdu0-IqDwlImA5bmNOIlktmOj0WUUak8G4OtphB2zL0Yi7WnfDAruVd_CHJdYrkTEIW1are7RDvgX753V5h96s9_8zn7A8KVR479FT5qLrMy3lFAN1sfauVatYkbl8EztWa9qBC7zQ7goAq682lc-A0IbGrgQ3whJMqGaLwvK3Q5kL7QyvkJ-VXe5dq58YpZnMlvsc5uH76QVKiie_tdjMy28xpQ2EmRI3nqa9-1uvGIO6-1MKhwBbAeHQdz7kgmcp2aTI2BjBurhyDxQKWUKJqQCrY7-FTx4d2xdxyBaDM-LCujL2O-oFx2NBNYYBsRKO1E22gxcSakpwNqjg8omJ8-7X-8JhBGebfT6WM4ociL1T8OxIr6JG8dEnJWRzma4feKGZVCmkLxJbHPQW0IPF3FGtGbTFyir9YALbQDPX9yUwz4_w09slZdG7y-8aWBrlrCHccmcOmm8hpsthiNJbgtjTPxjZdHNWglMiUJ8PmiazOK04QcBLv5N71icCWdogluVBsCxmehFnPNWYq3BzWSdEhLtdQIK5sokmMEY2KFsJQ32cnBg
+│       status code: 403, request id: 88a0f4a9-c313-47b6-9677-7862747f9fb9
+│
+│   with aws_instance.example,
+│   on main.tf line 7, in resource "aws_instance" "example":
+│    7: resource "aws_instance" "example" {
+```
+
+그런데 오류가 발생하네요..! iamlive가 `ec2:CreateTags` 권한을 제대로 캐치를 하지 못해서 그렇습니다. 이 권한을 계정에 추가해주고 다시 확인해보면 생성과 삭제 모두 문제 없이 진행되는 걸 확인할 수 있습니다. 물론 저 권한을 하나씩 확인하면서 추가했다면 꽤나 복잡했겠죠? 그러다가 `아 ** 안해`하게 됩니다. 하하하하하....개발이 다 그렇죠 뭐...
+
+## 참고자료
+
+- [https://github.com/iann0036/iamlive](https://github.com/iann0036/iamlive)
+- [Determining AWS IAM Policies According To Terraform And AWS CLI](https://meirg.co.il/2021/04/23/determining-aws-iam-policies-according-to-terraform-and-aws-cli/)
+- [Terraform Up and Running, 3rd Edition](https://www.terraformupandrunning.com/)
