@@ -12,6 +12,8 @@
 
 [How to Terraform(2) - 변수와 출력](./2023/How%20to%20Terraform%282%29%20-%20%EB%B3%80%EC%88%98%EC%99%80%20%EC%B6%9C%EB%A0%A5%2FHow%20to%20Terraform%282%29%20-%20%EB%B3%80%EC%88%98%EC%99%80%20%EC%B6%9C%EB%A0%A5.md)
 
+[How to Terraform(3) - 상태 관리](./2023/How%20to%20Terraform%283%29%20-%20%EC%83%81%ED%83%9C%20%EA%B4%80%EB%A6%AC%2FHow%20to%20Terraform%283%29%20-%20%EC%83%81%ED%83%9C%20%EA%B4%80%EB%A6%AC.md)
+
 # License
 
 [저작자표시-비영리-변경금지 2.0 대한민국 (CC BY-NC-ND 2.0 KR)](https://creativecommons.org/licenses/by-nc-nd/2.0/kr/)
