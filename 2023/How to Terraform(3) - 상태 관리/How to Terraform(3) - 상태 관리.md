@@ -1,5 +1,10 @@
 # How to Terraform(3) - 상태 관리
 
+## 시리즈 목차
+
+- [How to Terraform(1) - 테라폼과의 가벼운(?) 첫 만남](../How%20to%20Terraform%281%29%20-%20%ED%99%98%EA%B2%BD%20%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0%2FHow%20to%20Terraform%281%29%20-%20%ED%85%8C%EB%9D%BC%ED%8F%BC%EA%B3%BC%EC%9D%98%20%EA%B0%80%EB%B2%BC%EC%9A%B4%28%3F%29%20%EC%B2%AB%20%EB%A7%8C%EB%82%A8.md)
+- [How to Terraform(2) - 변수와 출력](../How%20to%20Terraform%282%29%20-%20%EB%B3%80%EC%88%98%EC%99%80%20%EC%B6%9C%EB%A0%A5%2FHow%20to%20Terraform%282%29%20-%20%EB%B3%80%EC%88%98%EC%99%80%20%EC%B6%9C%EB%A0%A5.md)
+
 ## 상태라니 무슨 상태?
 
 상태가 뭔지 설명하기 전에 간단한 실험을 해보죠! 새로운 폴더를 생성하고 아래 코드를 `main.tf`에 추가하겠습니다.
@@ -13,6 +18,12 @@ provider "aws" {
 ```
 
 그리고 `tf init`을 실행해봅시다.
+
+> `terraform`이라고 매번 입력하는게 어려우니 .zshrc나 .bashrc에 다음과 같이 alias 설정을 해서 `tf`로 사용하는 것도 방법입니다.
+>
+> ```
+> alias tf=terraform
+> ```
 
 ```bash
 > tf init
