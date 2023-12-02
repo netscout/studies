@@ -236,6 +236,12 @@ output "public_ip" {
 
 우선 `dev/ec2` 폴더에서 `tf init` 명령을 실행합니다.
 
+> `terraform`이라고 매번 입력하는게 어려우니 .zshrc나 .bashrc에 다음과 같이 alias 설정을 해서 `tf`로 사용하는 것도 방법입니다.
+>
+> ```
+> alias tf=terraform
+> ```
+
 ```bash
 > cd dev/ec2
 > tf init
