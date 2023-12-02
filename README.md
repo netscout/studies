@@ -16,6 +16,8 @@
 
 [How to Terraform(4) - 상태관리 개선하기](./2023/How%20to%20Terraform%284%29%20-%20%EC%83%81%ED%83%9C%EA%B4%80%EB%A6%AC%20%EA%B0%9C%EC%84%A0%ED%95%98%EA%B8%B0%2FHow%20to%20Terraform%284%29%20-%20%EC%83%81%ED%83%9C%EA%B4%80%EB%A6%AC%20%EA%B0%9C%EC%84%A0%ED%95%98%EA%B8%B0.md)
 
+[How to Terraform(5) - 모듈](./2023/How%20to%20Terraform%285%29%20-%20%EB%AA%A8%EB%93%88%2FHow%20to%20Terraform%285%29%20-%20%EB%AA%A8%EB%93%88.md)
+
 # License
 
 [저작자표시-비영리-변경금지 2.0 대한민국 (CC BY-NC-ND 2.0 KR)](https://creativecommons.org/licenses/by-nc-nd/2.0/kr/)
