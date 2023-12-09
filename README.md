@@ -18,6 +18,8 @@
 
 [How to Terraform(5) - 모듈](./2023/How%20to%20Terraform%285%29%20-%20%EB%AA%A8%EB%93%88%2FHow%20to%20Terraform%285%29%20-%20%EB%AA%A8%EB%93%88.md)
 
+[How to Terraform(6) - 모듈 버전관리](./2023/How%20to%20Terraform%286%29%20-%20%EB%AA%A8%EB%93%88%20%EB%B2%84%EC%A0%84%EA%B4%80%EB%A6%AC%2FHow%20to%20Terraform%286%29%20-%20%EB%AA%A8%EB%93%88%20%EB%B2%84%EC%A0%84%EA%B4%80%EB%A6%AC.md)
+
 # License
 
 [저작자표시-비영리-변경금지 2.0 대한민국 (CC BY-NC-ND 2.0 KR)](https://creativecommons.org/licenses/by-nc-nd/2.0/kr/)
