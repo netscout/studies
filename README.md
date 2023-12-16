@@ -20,6 +20,8 @@
 
 [How to Terraform(6) - 모듈 버전관리](./2023/How%20to%20Terraform%286%29%20-%20%EB%AA%A8%EB%93%88%20%EB%B2%84%EC%A0%84%EA%B4%80%EB%A6%AC%2FHow%20to%20Terraform%286%29%20-%20%EB%AA%A8%EB%93%88%20%EB%B2%84%EC%A0%84%EA%B4%80%EB%A6%AC.md)
 
+[How to Terraform(7) - 코드 중복 최소화하기](./2023/How%20to%20Terraform%287%29%20-%20%EC%BD%94%EB%93%9C%20%EC%A4%91%EB%B3%B5%20%EC%B5%9C%EC%86%8C%ED%99%94%ED%95%98%EA%B8%B0%2FHow%20to%20Terraform%287%29%20-%20%EC%BD%94%EB%93%9C%20%EC%A4%91%EB%B3%B5%20%EC%B5%9C%EC%86%8C%ED%99%94%ED%95%98%EA%B8%B0.md)
+
 # License
 
 [저작자표시-비영리-변경금지 2.0 대한민국 (CC BY-NC-ND 2.0 KR)](https://creativecommons.org/licenses/by-nc-nd/2.0/kr/)
