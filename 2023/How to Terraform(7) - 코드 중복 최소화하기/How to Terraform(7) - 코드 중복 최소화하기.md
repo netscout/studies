@@ -81,7 +81,7 @@ EOF
 
 ```hcl
 terraform {
-  source = "source = "github.com/netscout/terraform-modules//modules/ec2?ref=v0.0.1"
+  source = "github.com/netscout/terraform-modules//modules/ec2?ref=v0.0.1"
 }
 
 include {
