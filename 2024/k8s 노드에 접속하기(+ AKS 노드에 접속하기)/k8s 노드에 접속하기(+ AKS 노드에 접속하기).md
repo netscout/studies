@@ -69,6 +69,7 @@ k9s:
 참고로, 생성되는 pod는 앞서 **k9s info**로 확인했던 **Config** 파일에 설정되어 있으며, 기본 값은 이렇습니다.
 
 ```yaml
+
 ---
 shellPod:
   image: busybox:1.35.0
