@@ -1,5 +1,9 @@
 # 강수석의 Software Factory
 
+## 2025년
+
+[React 19 & 19.1 알아보기](https://github.com/netscout/react-19/blob/main/react19.md)
+
 ## 2024년
 
 [k8s 노드에 접속하기(+ AKS 노드에 접속하기)](./2024/k8s%20%EB%85%B8%EB%93%9C%EC%97%90%20%EC%A0%91%EC%86%8D%ED%95%98%EA%B8%B0%28%2B%20AKS%20%EB%85%B8%EB%93%9C%EC%97%90%20%EC%A0%91%EC%86%8D%ED%95%98%EA%B8%B0%29/k8s%20%EB%85%B8%EB%93%9C%EC%97%90%20%EC%A0%91%EC%86%8D%ED%95%98%EA%B8%B0%28%2B%20AKS%20%EB%85%B8%EB%93%9C%EC%97%90%20%EC%A0%91%EC%86%8D%ED%95%98%EA%B8%B0%29.md)
