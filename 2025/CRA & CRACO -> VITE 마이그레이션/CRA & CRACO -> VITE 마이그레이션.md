@@ -204,7 +204,7 @@ Error [ERR_REQUIRE_ESM]: require() of ES Module /path/to/vite-tsconfig-paths/dis
 }
 ```
 
-11. global is not defined 에러가
+11. global is not defined 에러
 
 몇몇 패키지는 global 변수를 참조하는데, VITE가 global 대신에 브라우저에서 사용하는 globalThis를 사용하도록 설정해주면 됩니다.
 
@@ -235,7 +235,7 @@ const isProduction = import.meta.env.MODE === "production";
 
 VITE는 CommonJS 모듈 시스템을 사용하지 않습니다. 그래서 require를 import로 변경해야 합니다.
 
-````typescript
+```typescript
 // 이전 방식
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
@@ -273,6 +273,7 @@ i18n.use(initReactI18next).init({
   },
   ...
 });
+```
 
 ## 빌드에서 문제가 발생하다.
 
@@ -296,15 +297,13 @@ build: {
     },
   },
 },
-````
+```
 
 빌드되고 나서 실행과정에서 문제가 생겼기 때문에, 다른 방법을 찾아야 했습니다.
 
 다른 방법으로는 lazy import를 사용하는 방법이었는데, 프로젝트가 워낙 복잡한 상황이었기에 한 번에 적용할 수는 없었고 일단은 Github Actions의 빌드 설정에 메모리 옵션을 추가하는 것으로 해결했습니다.
 
 ```yaml
-
----
 - run: CI=false npm run build
   env:
     NODE_OPTIONS: --max-old-space-size=8192
