@@ -2,6 +2,8 @@
 
 ## 2025년
 
+[patch-package로 패키지 커스터마이즈하기](./2025/patch-package%EB%A1%9C%20%ED%8C%A8%ED%82%A4%EC%A7%80%20%EC%BB%A4%EC%8A%A4%ED%84%B0%EB%A7%88%EC%9D%B4%EC%A6%88%ED%95%98%EA%B8%B0/patch-package%EB%A1%9C%20%ED%8C%A8%ED%82%A4%EC%A7%80%20%EC%BB%A4%EC%8A%A4%ED%84%B0%EB%A7%88%EC%9D%B4%EC%A6%88%ED%95%98%EA%B8%B0.md)
+
 [CRA & CRACO -> VITE 마이그레이션](./2025/CRA%20%26%20CRACO%20-%3E%20VITE%20%EB%A7%88%EC%9D%B4%EA%B7%B8%EB%A0%88%EC%9D%B4%EC%85%98/CRA%20%26%20CRACO%20-%3E%20VITE%20%EB%A7%88%EC%9D%B4%EA%B7%B8%EB%A0%88%EC%9D%B4%EC%85%98.md)
 
 [React 19 & 19.1 알아보기](https://github.com/netscout/react-19/blob/main/react19.md)
