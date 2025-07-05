@@ -2,6 +2,8 @@
 
 ## 2025년
 
+[Typescript: 타입 전용 import & export와 import 생략(elision)](https://github.com/netscout/typescript-studies/blob/main/src/type-only-import/README.md)
+
 [Cursor와 MCP를 활용한 프로젝트 설정](./2025/Cursor%EC%99%80%20MCP%EB%A5%BC%20%ED%99%9C%EC%9A%A9%ED%95%9C%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EC%84%A4%EC%A0%95/Cursor%EC%99%80%20MCP%EB%A5%BC%20%ED%99%9C%EC%9A%A9%ED%95%9C%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EC%84%A4%EC%A0%95.md)
 
 [patch-package로 패키지 커스터마이즈하기](./2025/patch-package%EB%A1%9C%20%ED%8C%A8%ED%82%A4%EC%A7%80%20%EC%BB%A4%EC%8A%A4%ED%84%B0%EB%A7%88%EC%9D%B4%EC%A6%88%ED%95%98%EA%B8%B0/patch-package%EB%A1%9C%20%ED%8C%A8%ED%82%A4%EC%A7%80%20%EC%BB%A4%EC%8A%A4%ED%84%B0%EB%A7%88%EC%9D%B4%EC%A6%88%ED%95%98%EA%B8%B0.md)
