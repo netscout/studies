@@ -2,6 +2,8 @@
 
 ## 2025년
 
+[CommonJS와 ESM의 차이점](https://github.com/netscout/typescript-studies/blob/main/src/commonjs-esm/README.md)
+
 [Typescript: 타입 전용 import & export와 import 생략(elision)](https://github.com/netscout/typescript-studies/blob/main/src/type-only-import/README.md)
 
 [Cursor와 MCP를 활용한 프로젝트 설정](./2025/Cursor%EC%99%80%20MCP%EB%A5%BC%20%ED%99%9C%EC%9A%A9%ED%95%9C%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EC%84%A4%EC%A0%95/Cursor%EC%99%80%20MCP%EB%A5%BC%20%ED%99%9C%EC%9A%A9%ED%95%9C%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EC%84%A4%EC%A0%95.md)
