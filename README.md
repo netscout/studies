@@ -2,6 +2,8 @@
 
 ## 2025년
 
+[Typescript: erasableSyntaxOnly](https://github.com/netscout/typescript-studies/blob/main/src/erasableSyntaxOnly/README.md)
+
 [CommonJS와 ESM의 차이점](https://github.com/netscout/typescript-studies/blob/main/src/commonjs-esm/README.md)
 
 [Typescript: 타입 전용 import & export와 import 생략(elision)](https://github.com/netscout/typescript-studies/blob/main/src/type-only-import/README.md)
