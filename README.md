@@ -2,6 +2,8 @@
 
 ## 2025년
 
+[TypeScript: 인덱스 시그니처와 인덱스 액세스 타입](https://github.com/netscout/typescript-studies/blob/main/src/index-type/README.md)
+
 [Typescript: erasableSyntaxOnly](https://github.com/netscout/typescript-studies/blob/main/src/erasableSyntaxOnly/README.md)
 
 [CommonJS와 ESM의 차이점](https://github.com/netscout/typescript-studies/blob/main/src/commonjs-esm/README.md)
