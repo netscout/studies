@@ -2,6 +2,8 @@
 
 ## 2025년
 
+[Typescript: import attributes](https://github.com/netscout/typescript-studies/blob/main/src/import-attribute/README.md)
+
 [Typescript: Decorator Metadata](https://github.com/netscout/typescript-studies/blob/main/src/decorator-metadata/README.md)
 
 [Typescript: using 문으로 리소스 관리](https://github.com/netscout/typescript-studies/blob/main/src/using-declaration/README.md)
