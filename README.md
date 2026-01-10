@@ -1,5 +1,9 @@
 # 강수석의 Software Factory
 
+## 2026년
+
+[go를 알아보자(1)](./2026/go%EB%A5%BC%20%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90%281%29/go%EB%A5%BC%20%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90%281%29.md)
+
 ## 2025년
 
 [Typescript: import attributes](https://github.com/netscout/typescript-studies/blob/main/src/import-attribute/README.md)
