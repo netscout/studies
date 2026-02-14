@@ -1,0 +1,19 @@
+{
+  "name": "paxos-leader-election",
+  "version": "1.0.0",
+  "description": "Paxos-based leader election demo with Express + TypeScript",
+  "type": "module",
+  "scripts": {
+    "start": "npx tsx runCluster.ts",
+    "node": "npx tsx node.ts"
+  },
+  "dependencies": {
+    "express": "^4.21.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0"
+  }
+}
