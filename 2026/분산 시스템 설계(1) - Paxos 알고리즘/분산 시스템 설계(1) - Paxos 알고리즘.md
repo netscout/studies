@@ -468,7 +468,7 @@ async function printStatus() {
       // 노드 상태 출력
       console.log(
         `${color}${leaderMark} 노드 ${node.id}: 리더=${data.currentLeaderId ?? '없음'}, ` +
-        `턴=${data.currentTurn}, 리더=${data.isLeader}, ` +
+        `턴=${data.currentTerm}, 리더=${data.isLeader}, ` +
         `약속한 제안 번호=${data.promisedProposal ?? '없음'}, 수락한 제안 번호=${data.acceptedProposal ?? '없음'}${colors.reset}`
       );
     } catch {
@@ -670,7 +670,7 @@ type AcceptResponse = {
 
 type HeartbeatMessage = {
   leaderId: number;
-  turn: number;
+  term: number;
 };
 
 // cli 매개변수로 전달받은 노드 아이디, 포트, 통신해야 할 다른 노드의 URL 목록 등의 값을 변수에 저장
@@ -693,7 +693,7 @@ let acceptedValue: number | null = null;
 // === Leader 상태와 Heartbeat ===
 
 let currentLeaderId: number | null = null;
-let currentTurn: number = 0;
+let currentTerm: number = 0;
 // 리더의 하트비트 전송 타이머
 let heartbeatTimer: NodeJS.Timeout | null = null;
 // 리더 부재시 선출을 진행하기 위한 타이머
@@ -861,14 +861,14 @@ function scheduleNextElection() {
 
 /**
  * 하트비트 시작
- * @param turn 현재 턴
+ * @param term 현재 턴
  */
-function startHeartbeat(turn: number) {
+function startHeartbeat(term: number) {
   // 하트비트 중지
   stopHeartbeat();
 
   heartbeatTimer = setInterval(() => {
-    console.log(`[노드 ${nodeId}] 💓 하트비트 전송 (턴 ${turn})`);
+    console.log(`[노드 ${nodeId}] 💓 하트비트 전송 (턴 ${term})`);
 
     // 자신(리더)를 제외한 나머지 노드에 하트비트 전송
     peers.forEach(async (peerUrl) => {
@@ -876,7 +876,7 @@ function startHeartbeat(turn: number) {
         await fetch(`${peerUrl}/leader/heartbeat`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ leaderId: nodeId, turn } as HeartbeatMessage),
+          body: JSON.stringify({ leaderId: nodeId, term } as HeartbeatMessage),
           signal: AbortSignal.timeout(1000),
         });
       } catch (error) {
@@ -970,7 +970,7 @@ app.post('/paxos/accept', (req, res) => {
     // 현재 리더 아이디 갱신
     currentLeaderId = value;
     // 현재 턴 갱신
-    currentTurn = proposalNumber;
+    currentTerm = proposalNumber;
 
     console.log(`[노드 ${nodeId}] → 수락! 새로운 리더: 노드 ${value} (제안 번호 ${proposalNumber})`);
 
@@ -991,19 +991,19 @@ app.post('/paxos/accept', (req, res) => {
 
 // 리더가 전송하는 하트비트 수신
 app.post('/leader/heartbeat', (req, res) => {
-  const { leaderId, turn } = req.body as HeartbeatMessage;
+  const { leaderId, term } = req.body as HeartbeatMessage;
 
   // 새로운 턴이 시작되었다면,
-  if (turn >= currentTurn) {
+  if (term >= currentTerm) {
     // 새로운 리더가 등장했다면,
     if (leaderId !== currentLeaderId) {
-      console.log(`[노드 ${nodeId}] 💓 새로운 리더로부터 하트비트 수신 / 리더: 노드 ${leaderId} (턴 ${turn})`);
+      console.log(`[노드 ${nodeId}] 💓 새로운 리더로부터 하트비트 수신 / 리더: 노드 ${leaderId} (턴 ${term})`);
     }
 
     // 현재 리더 아이디 갱신
     currentLeaderId = leaderId;
     // 현재 턴 갱신
-    currentTurn = turn;
+    currentTerm = term;
     
     /**
      * 리더 선출 타임아웃 리셋(타임아웃 이후, 리더가 없으면 리더 선출 시작)
@@ -1021,7 +1021,7 @@ app.get('/status', (req, res) => {
   res.json({
     nodeId,
     currentLeaderId,
-    currentTurn,
+    currentTerm,
     promisedProposal,
     acceptedProposal,
     acceptedValue,

@@ -107,7 +107,7 @@ async function printStatus() {
       // 노드 상태 출력
       console.log(
         `${color}${leaderMark} 노드 ${node.id}: 리더=${data.currentLeaderId ?? '없음'}, ` +
-        `턴=${data.currentTurn}, 리더=${data.isLeader}, ` +
+        `턴=${data.currentTerm}, 리더=${data.isLeader}, ` +
         `약속한 제안 번호=${data.promisedProposal ?? '없음'}, 수락한 제안 번호=${data.acceptedProposal ?? '없음'}${colors.reset}`
       );
     } catch {
