@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package greet;
+
+// 생성된 go 코드가 위치할 경로
+option go_package = "./pb";
+
+// gRPC를 통해 제공할 서비스(함수 목록)
+service Greeter {
+  rpc SayHello (HelloRequest) returns (HelloReply) {}
+}
+
+// 요청 메세지 형식
+message HelloRequest {
+  string name = 1; // 필드 번호
+}
+
+// 응답 메세지 형식
+message HelloReply {
+  string message = 1; // 필드 번호
+}
