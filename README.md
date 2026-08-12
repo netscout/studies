@@ -2,6 +2,8 @@
 
 ## 2026년
 
+[SIMD를 알아보자(feat. Go)](./2026/SIMD%EB%A5%BC%20%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90%28feat.%20Go%29/SIMD%EB%A5%BC%20%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90%28feat.%20Go%29.md)
+
 [Typescript: Temporal](./2026/Typescript%3A%20Temporal/Typescript%3A%20Temporal.md)
 
 [go를 알아보자(3) - 포인터](./2026/go%EB%A5%BC%20%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90%283%29%20-%20%ED%8F%AC%EC%9D%B8%ED%84%B0/go%EB%A5%BC%20%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90%283%29%20-%20%ED%8F%AC%EC%9D%B8%ED%84%B0.md)
