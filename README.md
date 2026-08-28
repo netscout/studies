@@ -1,6 +1,10 @@
 # 강수석의 Software Factory
 
+이 리포의 모든 글은 [블로그](https://netscout.github.io/)에서 확인할 수 있습니다.
+
 ## 2026년
+
+[Node.js: --experimental-vm-modules](./2026/Node.js%3A%20--experimental-vm-modules/Node.js%3A%20--experimental-vm-modules.md)
 
 [SIMD를 알아보자(feat. Go)](./2026/SIMD%EB%A5%BC%20%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90%28feat.%20Go%29/SIMD%EB%A5%BC%20%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90%28feat.%20Go%29.md)
 
