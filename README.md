@@ -4,6 +4,8 @@
 
 ## 2026년
 
+[분산 시스템 설계(3) - 액터 모델(1) feat. Go, Node.js, .NET, Java, Rust](./2026/%EB%B6%84%EC%82%B0%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%283%29%20-%20%EC%95%A1%ED%84%B0%20%EB%AA%A8%EB%8D%B8%281%29%20feat.%20Go%2C%20Node.js%2C%20.NET%2C%20Java%2C%20Rust/%EB%B6%84%EC%82%B0%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%283%29%20-%20%EC%95%A1%ED%84%B0%20%EB%AA%A8%EB%8D%B8%281%29%20feat.%20Go%2C%20Node.js%2C%20.NET%2C%20Java%2C%20Rust.md)
+
 [분산 시스템 설계(2) - 일관된 해싱](./2026/%EB%B6%84%EC%82%B0%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%282%29%20-%20%EC%9D%BC%EA%B4%80%EB%90%9C%20%ED%95%B4%EC%8B%B1/%EB%B6%84%EC%82%B0%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%EC%84%A4%EA%B3%84%282%29%20-%20%EC%9D%BC%EA%B4%80%EB%90%9C%20%ED%95%B4%EC%8B%B1.md)
 
 [Node.js: --experimental-vm-modules](./2026/Node.js%3A%20--experimental-vm-modules/Node.js%3A%20--experimental-vm-modules.md)
