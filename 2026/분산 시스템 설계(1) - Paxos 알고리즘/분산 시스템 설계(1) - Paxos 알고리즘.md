@@ -1624,5 +1624,3 @@ flowchart TD
 - 요즘 개발자를 위한 시스템 설계 수업. 디렌드라 신하, 테자스 초프라 저. 길벗
 - https://www.ibm.com/history/700
 - https://setiathome.berkeley.edu/sah_graphics.php
-- CLAUDE
-- Perpexity

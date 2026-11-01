@@ -310,4 +310,3 @@ counter3 := &Counter{count: 10} // 초기값을 지정하고 싶다면 이쪽
 ## 참고자료
 
 - Tucker의 Go 언어 프로그래밍
-- Claude
