@@ -18,7 +18,7 @@ Node.js 호환 런타임 경쟁에서는 좀 어려움이 있었지만 Deno 팀�
 
 celld는 `플릿(fleet) -> 노드(celld instance) -> 셀` 의 구조로 구성됩니다. 앞서 살펴봤던 Orleans가 `클러스터 -> 사일로 -> 그레인`의 구조였던 것과 동일하죠!
 
-<p align="center"><img src="./celld-structure.png"></p>
+<p align="center"><img src="./celld-structure.png"><br/>https://celld.dev/</p>
 
 각 서버 컴퓨터 별로 celld를 하나의 프로세스로 동작시키게 되는데, 이 프로세스가 노드입니다. 그리고 스토리지 버킷(bucket)을 공유하는 모든 노드의 집합을 플릿(fleet)이라고 부릅니다. 셀은 어떤 노드에서도 동작할 수 있기 때문에 노드만 플릿에 새로 추가하면 처리용량을 쉽게 늘릴 수 있습니다.
 
